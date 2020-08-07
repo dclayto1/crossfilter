@@ -34,7 +34,7 @@ declare namespace crossfilter {
     reduce(
       add: (p: TValue, v: TRecord, nf: boolean) => TValue,
       remove: (p: TValue, v: TRecord, nf: boolean) => TValue,
-      initial: () => TValue,
+      initial: (k?: TKey) => TValue,
     ): Group<TRecord, TKey, TValue>;
     reduceCount(): Group<TRecord, TKey, TValue>;
     reduceSum(selector: (record: TRecord) => number): Group<TRecord, TKey, TValue>;

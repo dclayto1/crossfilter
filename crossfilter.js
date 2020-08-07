@@ -656,7 +656,7 @@
           // newIndex should be a map of sortedValue -> crossfilterData
           newIndex = permute(unsortedIndex, sortMap);
 
-        } else{
+        } else {
           // Permute new values into natural order using a standard sorted index.
           newValues = newData.map(value);
           newIndex = sortRange(n1);
@@ -1260,7 +1260,7 @@
           if(iterable){
             groupIndex = k0 ? groupIndex : [];
           }
-          else{
+          else {
             groupIndex = k0 > 1 ? xfilterArray.arrayLengthen(groupIndex, n) : cr_index(n, groupCapacity);
           }
 
@@ -1286,7 +1286,7 @@
               g0 = oldGroups[++i0];
               if (g0) x0 = g0.key;
             } else {
-              g = {key: x1, value: initial()}, x = x1;
+              g = {key: x1, value: initial(x1)}, x = x1;
             }
 
             // Add the lesser group.
@@ -1303,11 +1303,11 @@
                 if(groupIndex[j]){
                   groupIndex[j].push(k);
                 }
-                else{
+                else {
                   groupIndex[j] = [k];
                 }
               }
-              else{
+              else {
                 groupIndex[j] = k;
               }
 
@@ -1350,7 +1350,7 @@
                 }
               }
             }
-            else{
+            else {
               for (i0 = 0; i0 < n0; ++i0) {
                 groupIndex[i0] = reIndex[groupIndex[i0]];
               }
@@ -1553,7 +1553,7 @@
 
           // Reset all group values.
           for (i = 0; i < k; ++i) {
-            groups[i].value = reduceInitial();
+            groups[i].value = reduceInitial(groups[i].key);
           }
 
           // We add all records and then remove filtered records so that reducers
@@ -1596,7 +1596,7 @@
               g = groups[0];
 
           // Reset the singleton group values.
-          g.value = reduceInitial();
+          g.value = reduceInitial(g.key);
 
           // We add all records and then remove filtered records so that reducers
           // can build an 'unfiltered' view even if there are already filters in
